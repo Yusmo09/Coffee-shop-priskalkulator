@@ -1,6 +1,19 @@
+coffeeMeny = {
+   "Espresso": 2.50,
+   "Americano": 3,
+   "Latte": 2.50,
+   "Cappuccino": 3,
+   "Macchiato": 2.50,
+   "Mocha": 3.50,
+   "Flat White": 2.50,
+}
 
-
-
+def validerOrder(spørsmål, coffeMeny):
+   while True:
+      svar = input(spørsmål).title().strip()
+      if svar in coffeMeny:
+         return svar
+      print(f"{svar} er ikke et gyldig valg. Prøv igjen med et annet alternativ fra listen.\n")
 
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
 print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
@@ -24,29 +37,10 @@ print("----------------------------")
 price = 0
 size = 0
 eatIn = 0
-coffee = input("What type of coffee would you like? ").title()
+coffeeMeny = input("What type of coffee would you like? ").title()
 
 #Her velger eg prisen for alle kaffe typene
-if coffee=="Espresso":
-   price = price + 2.50
 
-elif coffee=="Americano":
-   price = price + 3
-
-elif coffee=="Latte":
-   price = price + 2.50
-
-elif coffee == "Cappuccino":
-   price = price + 3
-
-elif coffee == "Macchiato":
-   price = price + 2.50
-
-elif coffee == "Mocha":
-   price = price + 3.50
-
-elif coffee == "Flat White":
-   price = price + 2.50
 
 #Her spør den hva størrelse kunden ønsker på drikken sin
 print("----------------------------")
