@@ -8,6 +8,17 @@ coffeeMeny = {
    "Flat White": 2.50,
 }
 
+sizeMeny = {
+   "M": 0,
+   "L": 1,
+   "XL": 1.5,
+}
+
+takeAway = {
+   "No": 0,
+   "Yes": 1,
+}
+
 def validerOrder(spørsmål, coffeMeny):
    while True:
       svar = input(spørsmål).title().strip()
@@ -15,6 +26,46 @@ def validerOrder(spørsmål, coffeMeny):
          return svar
       print(f"{svar} er ikke et gyldig valg. Prøv igjen med et annet alternativ fra listen.\n")
 
+def vis_meny(tittel, meny):
+   print("----------------------------")
+   print(tittel)
+   for valg in meny:
+      print(f" > {valg}")
+   print("----------------------------")
+
+def mainprogram():
+   print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+   print("+                               +")
+   print("+         The Coffee Shop       +")
+   print("+              Welcome          +")
+   print("+                               +")
+   print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+
+   totalPrice = 0.0
+
+
+   vis_meny("We serve these following coffee", coffeeMeny)
+   chosenCoffee = validerOrder("What type of coffee would you like?", coffeeMeny)
+   totalPrice += coffeeMeny[chosenCoffee]
+
+   vis_meny("We serve these following sizes", sizeMeny)
+   chosenSize = validerOrder("What size would you like?", sizeMeny)
+   totalPrice += sizeMeny[chosenSize]
+
+   vis_meny("We offer take out", takeAway)
+   chosenTakeAway = validerOrder("Would you like to eat in or take away?", takeAway)
+   totalPrice += takeAway[chosenTakeAway]
+
+   print("----------------------------")
+   print("Final order")
+   print(f" * Coffe: {chosenCoffee} ")
+   print(f" * Size: {chosenSize} ")
+   print(f" * Take away: {chosenTakeAway} ")
+   print("----------------------------")
+   print(f"Your total is {totalPrice}")
+
+mainprogram()
+"""
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
 print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
 print("+                               +")
@@ -68,3 +119,4 @@ elif takeAway == "yes":
 print("----------------------------")
 total = price + size + eatIn
 print(f"Total Cost: £{price} + £{size} + £{eatIn} = £{total}")
+"""
